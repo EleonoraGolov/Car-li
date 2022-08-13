@@ -41,7 +41,7 @@ from sklearn.naive_bayes import GaussianNB
 
 
 def classificationModule(userArray):
-    df = pd.read_csv("Car_results.csv")
+    df = pd.read_csv("data/Car_results.csv")
     #copy the data
     df2 = df.copy()
 
@@ -335,65 +335,54 @@ def classificationModule(userArray):
 
     
     ###################### convert input to numbers
-    print(userArray)
     put2 = []
     pd.options.mode.chained_assignment = None
     for i in range(1):
         age_of_user = res_age.loc[res_age['str'] == userArray[0], 'num'].iloc[0]
         put2.append(age_of_user)
-        print(age_of_user)
         
         gender_of_user = res_Gender.loc[res_Gender['str'] == userArray[1], 'num'].iloc[0]
         put2.append(gender_of_user)
-        print(gender_of_user)
         
         kids_of_user = res_kids.loc[res_kids['str'] == userArray[2], 'num'].iloc[0]
         put2.append(kids_of_user)
-        print(kids_of_user)
         
         living_area_of_user = res_living_area.loc[res_living_area['str'] == userArray[3], 'num'].iloc[0]
         put2.append(living_area_of_user)
-        print(living_area_of_user)
         
         drive_type_of_user = res_drive_type.loc[res_drive_type['str'] == userArray[4], 'num'].iloc[0]
         put2.append(drive_type_of_user)
-        print(drive_type_of_user)
         
         work_car_of_user = res_work_car.loc[res_work_car['str'] == userArray[5], 'num'].iloc[0]
         put2.append(work_car_of_user)
-        print(work_car_of_user)
         
         change_cars_of_user = res_change_cars.loc[res_change_cars['str'] == userArray[6], 'num'].iloc[0]
         put2.append(change_cars_of_user)
-        print(change_cars_of_user)
         
         reason_of_user = res_reason.loc[res_reason['str'] == userArray[7], 'num'].iloc[0]
         put2.append(reason_of_user)
-        print(reason_of_user)
         
         electric_car_of_user = res_electric_car.loc[res_electric_car['str'] == userArray[8], 'num'].iloc[0]
         put2.append(electric_car_of_user)
-        print(electric_car_of_user)
         
         parameters_of_user = res_parameters.loc[res_parameters['str'] == userArray[9], 'num'].iloc[0]
         put2.append(parameters_of_user)
-        print(parameters_of_user)
             
-    print(put2)
+    # print(put2)
 
     ######################## classification to the input of the user
     features = np.array([put2])
-    print(features)
+    # print(features)
     prediction = Ra_C.predict(features)
     num_pre = prediction
-    print(class_names[int(num_pre)])
+    # print(class_names[int(num_pre)])
 
     ######### Out put for the user
     #הדפסה של הרכבים תחת אותה קטגוריה
     car_data["Category"] = car_data["Category"].replace(["משפחתי","ג'יפ","קרוסאובר","יוקרה","מיני","מיניוואן","מנהלים","ספורט","מסחרי","טנדר"],['Family','Jeep','Crossover','Luxury','Mini','Minivan','Managers','Sports','Commercial','Tender'])
     temp = car_data.loc[car_data['Category'] == class_names[int(num_pre)]]
     temp2 = temp[['Manufacturer','Model','Year','Price']]
-    print(temp2)
+    # print(temp2)
     return temp2
     
     #print(temp2.loc[(temp2['Price'] >= min_price) & (temp2['Price'] <= max_price)][:5])
