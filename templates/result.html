@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
+        
+
+        <!-- <link rel="stylesheet" href="https://demos.jquerymobile.com/1.4.2/css/themes/default/jquery.mobile-1.4.2.min.css">
+        <script src="https://demos.jquerymobile.com/1.4.2/js/jquery.js"></script>
+        <script src="https://demos.jquerymobile.com/1.4.2/js/jquery.mobile-1.4.2.min.js"></script> -->
+        
+        <title>Results</title>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>הרכבים המתאימים עבורך</h1>
+            </header>
+
+            <nav>
+                <h1>פרסומת</h1>
+            </nav>
+
+            <main>
+                <div class="result-block">
+                    <table>
+                        <tr>
+                            {% for car in cars_data %}
+                                <div class="result-card">
+                                    {{ car[2] }}
+                                    {{ car[0] }}
+                                    {{ car[1] }}
+                                    <br/>
+                                    מחירון:{{ car[3] }}
+                                    <br/>
+                                    <!-- <img class="car-image" src="{{car[4]}} "> -->
+                                </div>
+                            {% endfor %}
+                        </tr>
+                    </table>
+                </div>
+            </main>
+
+            <aside></aside>
+            <footer></footer>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="https://demos.jquerymobile.com/1.4.2/css/themes/default/jquery.mobile-1.4.2.min.css"> -->
+    <!-- <script src="https://demos.jquerymobile.com/1.4.2/js/jquery.js"></script> -->
+    <!-- <script src="https://demos.jquerymobile.com/1.4.2/js/jquery.mobile-1.4.2.min.js"></script> -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/form.css') }}"
+    />
+    <title>Form</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>מערכת התאמת רכב</h1>
+        <h5>ענה על שאלון קצר וקבל את הרכב המתאים לך</h5>
+      </header>
+      <nav>
+        <h1>פרסומת</h1>
+      </nav>
+      <main>
+        <form method="POST">
+          <div class="question-form">
+            <div class="input-block" style="height: 170px" id="drive-type">
+              <h2>מה סוג הנסיעות שלך</h2>
+              <br />
+              <label for="drive-type-1">עירוני</label>
+              <input
+                type="radio"
+                id="drive-type-1"
+                name="drive-type"
+                value="עירוני"
+                required
+              />
+              <br />
+              <label for="drive-type-2">בין עירוני</label>
+              <input
+                type="radio"
+                id="drive-type-2"
+                name="drive-type"
+                value="בין-עירוני"
+              />
+              <br />
+              <label for="drive-type-3">משולב</label>
+              <input
+                type="radio"
+                id="drive-type-3"
+                name="drive-type"
+                value="משולב"
+              />
+            </div>
+
+            <div class="input-block" style="height: 150px">
+              <h2>מה אזור מגוריך</h2>
+              <br />
+              <select required name="living-place">
+                <option value="" disabled selected>בחר איזור מגורים</option>
+                <option value="צפון">צפון</option>
+                <option value="מרכז">מרכז</option>
+                <option value="דרום">דרום</option>
+                <option value="מחוז ירושלים">מחוז ירושלים</option>
+                <option value="שפלה ומישור החוף הדרומי">שפלה ומישור החוף הדרומי</option>
+                <option value="שרון">שרון</option>
+                <option value="יהודה ושומרון ובקעת הירדן">יהודה ושומרון ובקעת הירדן</option>
+                <option value="חדרה, זכרון העמקים">חדרה, זכרון העמקים</option>
+              </select>
+            </div>
+
+            <div class="input-block" style="height: 150px">
+              <h2>?כל כמה זמן את/ה נוהג/ת להחליף רכב</h2>
+              <br />
+              <select required name="change-cars-of-user">
+                <option value="" disabled selected>בחר</option>
+                <option value="כל חצי שנה או פחות">כל חצי שנה או פחות</option>
+                <option value="בין 1-2 שנים">בין 1-2 שנים</option>
+                <option value="בין 3-5">בין 3-5</option>
+                <option value="מעל 5 שנים">מעל 5 שנים</option>
+              </select>
+            </div>
+
+            <div class="input-block" style="height: 150px">
+              <h2>?מה סיבת ההחלפה בכל פעם</h2>
+              <br />
+              <select required name="reason-of-user">
+                <option value="" disabled selected>בחר</option>
+                <option value="הרחבת המשפחה">הרחבת המשפחה</option>
+                <option value="שידרוג רכב">שידרוג רכב</option>
+                <option value="מצב כלכלי">מצב כלכלי</option>
+                <option value="אי שביעות רצון מהרכב הקודם">אי שביעות רצון מהרכב הקודם</option>
+                <option value="אחר">אחר</option>
+              </select>
+            </div>
+
+            <div class="input-block" style="height: 170px" id="gender">
+                <h2>?האם תרצה/י לבחור ברכב חשמלי בעתיד</h2>
+                <br />
+                <label for="yes">כן</label>
+                <input
+                  type="radio"
+                  id="yes"
+                  name="electric-car-of-user"
+                  value="כן"
+                  required
+                />
+                <br />
+                <label for="no">לא</label>
+                <input 
+                type="radio" 
+                id="no" 
+                name="electric-car-of-user"
+                value="לא" />
+              </div>
+
+            <div class="input-block" style="height: 170px" id="gender">
+              <h2>מה המין שלך</h2>
+              <br />
+              <label for="gender-1">זכר</label>
+              <input
+                type="radio"
+                id="gender-1"
+                name="gender"
+                value="זכר"
+                required
+              />
+              <br />
+              <label for="gender-2">נקבה</label>
+              <input type="radio" id="gender-2" name="gender" value="נקבה" />
+            </div>
+
+            <div class="input-block" style="height: 150px">
+              <h2>מה הגיל שלך</h2>
+              <br />
+              <select required name="age">
+                <option value="" disabled selected>בחר טווח</option>
+                <option value="17-27">17-27</option>
+                <option value="28-40">28-40</option>
+                <option value="40-60">40-60</option>
+                <option value="60+">60+</option>
+              </select>
+            </div>
+
+            <div class="input-block" style="height: 170px" id="work-car">
+              <h2>האם הרכב משמש אותך לעבודה</h2>
+              <br />
+              <label for="work-car-1">לא</label>
+              <input
+                type="radio"
+                id="work-car-1"
+                name="work-car"
+                value="לא"
+                required
+              />
+              <br />
+              <label for="work-car-2">הסעת נוסעים</label>
+              <input
+                type="radio"
+                id="work-car-2"
+                name="work-car"
+                value="הסעת נוסעים"
+              />
+              <br />
+              <label for="work-car-3">העברת ציוד</label>
+              <input
+                type="radio"
+                id="work-car-3"
+                name="work-car"
+                value="העברת ציוד"
+              />
+            </div>
+
+            <div class="input-block" style="height: 150px">
+              <h2>האם יש לך ילדים</h2>
+              <br />
+              <select required name="kids">
+                <option value="אין">אין</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6+</option>
+              </select>
+            </div>
+
+            <div class="input-block">
+              <h2>מה הפרמטרים החשובים לך ברכב</h2>
+              <div name="preferences" class="radio-buttons">
+                <label for="service">שירות</label>
+                <input
+                  type="checkbox"
+                  id="service"
+                  name="preferences"
+                  value="שירות"
+                />
+                <br />
+
+                <label for="price">מחיר</label>
+                <input
+                  type="checkbox"
+                  id="price"
+                  name="preferences"
+                  value="מחיר"
+                />
+                <br />
+
+                <label for="reliability">אמינות</label>
+                <input
+                  type="checkbox"
+                  id="reliability"
+                  name="preferences"
+                  value="אמינות"
+                />
+                <br />
+
+                <label for="safety">בטיחות</label>
+                <input
+                  type="checkbox"
+                  id="safety"
+                  name="preferences"
+                  value="בטיחות"
+                />
+                <br />
+
+
+                <label for="small">רכב קטן</label>
+                <input
+                  type="checkbox"
+                  id="small"
+                  name="preferences"
+                  value="גודל(קטן)"
+                />
+                <br />
+
+                <label for="big">רכב גדול</label>
+                <input
+                  type="checkbox"
+                  id="big"
+                  name="preferences"
+                  value="גודל(גדול)"
+                />
+              </div>
+            </div>
+            <div class="input-block">
+              <h2>טווח מחירים</h2>
+              <br />
+              <div name="price">
+                <select name="range_min">
+                  <option value="0">0</option>
+                  <option value="10000">₪10,000</option>
+                  <option value="20000">₪20,000</option>
+                  <option value="30000">₪30,000</option>
+                  <option value="40000">₪40,000</option>
+                </select>
+                -
+                <select name="range_max">
+                  <option value="10000">₪10,000</option>
+                  <option value="20000">₪20,000</option>
+                  <option value="30000">₪30,000</option>
+                  <option value="40000">₪40,000</option>
+                  <option value="50000">₪50,000</option>
+                  <option value="60000">₪60,000</option>
+                  <option value="70000">₪70,000</option>
+                  <option value="80000">₪80,000</option>
+                  <option value="90000">₪90,000</option>
+                  <option value="100000">₪100,000</option>
+                  <option value="110000">₪110,000</option>
+                  <option value="120000">₪120,000</option>
+                  <option value="130000">₪130,000</option>
+                  <option value="140000">₪140,000</option>
+                  <option value="150000">₪150,000</option>
+                  <option value="160000">₪160,000</option>
+                </select>
+              </div>
+            </div>
+            <br />
+          </div>
+          <div class="submit-button">
+            <button type="submit" id="submit">חפש</button>
+          </div>
+        </form>
+      </main>
+      <aside></aside>
+    </div>
+  </body>
+</html>
